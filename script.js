@@ -373,7 +373,7 @@ function startFallingAnimation(elementname) {
     const messageWrapper = document.getElementById(elementname);
     // const showMessageButton = document.getElementById("showMessage");
 
-    messageWrapper.style.animation = "fall 1s forwards"; // Start the animation
+    messageWrapper.style.animation = "fall 2s forwards"; // Start the animation
     // showMessageButton.disabled = true; // Disable the button to prevent multiple triggers
 }
 document.addEventListener("DOMContentLoaded", function () {
