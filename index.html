@@ -15,6 +15,7 @@
         margin: 0;
         background-color: #000;
         color: #00FF00; /* Green text color */
+        overflow: hidden; /* Hide overflow to create the illusion of falling */
     }
 
     .terminal {
@@ -24,12 +25,18 @@
         padding: 20px;
         text-align: left;
         font-family: monospace;
+        position: relative;
+        z-index: 1; /* Ensure the terminal appears on top */
     }
 
-    .message-container {
+    .message-wrapper {
         text-align: left;
         font-family: monospace;
-        margin-top: 20px; /* Add margin to create space between button and message */
+        position: absolute;
+        top: -50px; /* Start above the terminal */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Center horizontally */
+        animation: fall 3s ease-in-out infinite; /* Adjust animation duration as needed */
     }
 
     pre {
@@ -52,9 +59,30 @@
         background-color: #009900; /* Darker green on hover */
     }
 
+    @keyframes fall {
+        0% {
+            transform: translateY(-50px) rotate(0deg); /* Start above the terminal with no rotation */
+            opacity: 1; /* Fully visible when at the top */
+        }
+        100% {
+            transform: translateY(100vh) rotate(90deg); /* End below the viewport with a 90-degree rotation */
+            opacity: 1; /* Maintain full opacity */
+        }
+    }
+    @keyframes fall {
+        0% {
+            transform: translateY(-50px) rotate(0deg); /* Start above the terminal with no rotation */
+            opacity: 1; /* Fully visible when at the top */
+        }
+        100% {
+            transform: translateY(100vh) rotate(90deg); /* End below the viewport with a 90-degree rotation */
+            opacity: 1; /* Maintain full opacity */
+        }
+    }
+
 </style><body>
-<div class="terminal">
-    <h1>Thank You Cody for all you do for us!</h1>
+<div class="terminal" id="terminal">
+    <h1 id="myh1">Thank You Cody for all you do for us!</h1>
     <button id="showMessage">Generate Thank You</button>
     <div class="message-container">
         <pre id="message">Thank You</pre>
