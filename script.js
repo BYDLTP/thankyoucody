@@ -444,7 +444,9 @@ function startFallingAnimation(elementname) {
 }
 
 function isMobileUserAgent() {
-    return document.body.requestFullscreen === null;
+    if (document.body.requestFullscreen) return false;
+
+    return true;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
