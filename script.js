@@ -420,13 +420,13 @@ function startFallingAnimationClass(elementname) {
     </div>
 </div>
             `;
-            document.exitFullscreen()
+            if (!isMobileUserAgent()) document.exitFullscreen()
 
             const messageElement = document.getElementById("message");
             const showMessageButton = document.getElementById("showMessage");
 
             showMessageButton.addEventListener("click", function () {
-                document.body.requestFullscreen();
+                if (!isMobileUserAgent()) document.body.requestFullscreen();
                 showEverything2(1000)
             });
         }, t + 9500);
@@ -443,12 +443,16 @@ function startFallingAnimation(elementname) {
     // showMessageButton.disabled = true; // Disable the button to prevent multiple triggers
 }
 
+function isMobileUserAgent() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const messageElement = document.getElementById("message");
     const showMessageButton = document.getElementById("showMessage");
 
     showMessageButton.addEventListener("click", function () {
-        document.body.requestFullscreen();
+        if (!isMobileUserAgent()) document.body.requestFullscreen();
         showEverything2(1000)
     });
 
