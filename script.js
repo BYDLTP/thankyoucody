@@ -444,10 +444,7 @@ function startFallingAnimation(elementname) {
 }
 
 function isMobileUserAgent() {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    return /android|avantgo|bada\/|blackberry|bb\/|cricket|iemobile|ipad|iphone|ipod|opera mini|opera mobi|palm( os)?|phone|p\.os|rim tablet|symbian|windows (ce|phone)|xda|xiino/i.test(userAgent) ||
-        /1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|wt)|aptu|ar(ch|go)|as(te|us)|au(di|\-m|l|s )|avan|be(ck|ll|nq)|bi(lb|rd|rp)|bm(n|di)|bl(ac|az)|br(e|t)|bw\-(n|u)|byn|bz|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|po)|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|evc|ez([4-7]0|\/0|\/1)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|di)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |a)|tp)|hu(aw|tc)|i\-(20|go)|i230|iac( |\-|\/)|ibro|idea|ig01|im1k|inno|ipaq|iris|ja(t|v)u|kd star|kgt( |\/)|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|u)|50|54|\-[a-e])|libw|lynx|m1\-w|m3ga|ma(te|ui|mo|me|mi|mc|ca|da)|m\-cr|me(rc|ri)|mi(o8|o|a|t|u|up)|mk(l2|s\-\|)|ml\-a|mmef|mo(01|02|ti)|mt(50|p1|o|v)|mwbp|mywa|n10|n20|n30|n50|02|nx|o2|on(\.m|a|n)|op(ti|w|b)|oran|owg1|p800|pdxg|pg\-13|pg\-9|pro|pt\-g|pvu|px\(\-|0|1|2|3|4|5|6|7|8|9)|qtek|r380|r600|s55\/|sam\-s|sc(01|h|oo|p)|sdk\/|se(c(\-|0|1|2|3|4|5|6|7)|47)|sg\-h|shar|sie(\-|m|l)|sk\-0|sl(45|47)|sm(al|ar|b3|er|in|ip|me)|softbank|sn1|so(ft|ny)|sp(01|h)|sy(01|05|06)|t2(18|50)|t\-mo|t\-b|tc(01|03|05|06)|tdg|tel(i|m)|tim|t\-mo|to(pl|sh)|ts(21|70)|un|us|utst|vi(rg|t)|vk(40|5[0-3]|\-[0-7])|vm40|voda|vulc|vx(52|53|54|55|56)|wap\-|wi(g |nc|nw)|wmlb|win(md|wg|wn)|wos/i.test(userAgent) ||
-        /iemobile/i.test(userAgent) && /tablet/i.test(userAgent);
+    return document.body.requestFullscreen === null;
 }
 
 document.addEventListener("DOMContentLoaded", function () {
