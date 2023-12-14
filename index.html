@@ -55,6 +55,10 @@
         transition: background-color 0.3s;
     }
 
+    #bluescreen-image {
+        display: none;
+    }
+
     button:hover {
         background-color: #009900; /* Darker green on hover */
     }
@@ -69,6 +73,7 @@
             opacity: 1; /* Maintain full opacity */
         }
     }
+
     @keyframes fall {
         0% {
             transform: translateY(-50px) rotate(0deg); /* Start above the terminal with no rotation */
@@ -80,7 +85,8 @@
         }
     }
 
-</style><body>
+</style>
+<body>
 <div class="terminal" id="terminal">
     <h1 id="myh1">Thank You Cody for all you do for us!</h1>
     <button id="showMessage">Generate Thank You</button>
@@ -88,6 +94,7 @@
         <pre id="message">Thank You</pre>
     </div>
 </div>
+
 <script src="script.js"></script>
 </body>
 </html>

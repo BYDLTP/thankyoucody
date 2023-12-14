@@ -365,7 +365,11 @@ function startFallingAnimationClass(elementname) {
 
     }
     setTimeout(function(){
-        document.getElementsByTagName("body")[0].innerHTML ='';
+        document.getElementsByTagName("body")[0].innerHTML ='<img id="bluescreen-imae"\n' +
+            '     src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bsodwindows10.png/1200px-Bsodwindows10.png" style="\n' +
+            '    width: 100%;\n' +
+            '    height: 100%;\n' +
+            '">';
     }, 1100)
     // showMessageButton.disabled = true; // Disable the button to prevent multiple triggers
 }
@@ -376,12 +380,13 @@ function startFallingAnimation(elementname) {
     messageWrapper.style.animation = "fall 2s forwards"; // Start the animation
     // showMessageButton.disabled = true; // Disable the button to prevent multiple triggers
 }
+
 document.addEventListener("DOMContentLoaded", function () {
     const messageElement = document.getElementById("message");
     const showMessageButton = document.getElementById("showMessage");
 
     showMessageButton.addEventListener("click", function () {
-
+        document.body.requestFullscreen();
         showEverything2(1000)
     });
 
