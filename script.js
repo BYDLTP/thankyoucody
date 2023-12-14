@@ -301,6 +301,7 @@ var messages = [
     " You're one in a million"];
 
 var index = 0;
+
 function startExplosionAnimation(element, timeout, x, y) {
     setTimeout(function () {
         const explosionDuration = 1000; // Duration of the explosion animation in milliseconds
@@ -317,9 +318,11 @@ function startExplosionAnimation(element, timeout, x, y) {
         }, explosionDuration);
     }, timeout)
 }
+
 var totalMilliseconds = 0;
 var globalTimeout = 0;
 var totalNeededMilliseconds = 15623;
+
 function showEverything2(timeout) {
     newFunction();
     totalMilliseconds += timeout;
@@ -357,6 +360,7 @@ function showEverything2(timeout) {
         showEverything2(timeout)
     }, timeout);
 }
+
 function startFallingAnimationClass(elementname) {
     const messageWrapper = document.getElementsByClassName(elementname);
     // const showMessageButton = document.getElementById("showMessage");
@@ -364,15 +368,73 @@ function startFallingAnimationClass(elementname) {
         messageWrapper[i].style.animation = "fall 1s forwards"; // Start the animation
 
     }
-    setTimeout(function(){
-        document.getElementsByTagName("body")[0].innerHTML ='<img id="bluescreen-imae"\n' +
-            '     src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Bsodwindows10.png/1200px-Bsodwindows10.png" style="\n' +
-            '    width: 100%;\n' +
-            '    height: 100%;\n' +
-            '">';
+    setTimeout(function () {
+        document.getElementsByTagName("body")[0].innerHTML = '';
     }, 1100)
+    setTimeout(function () {
+
+        // document.getElementsByTagName("error-screen")[0].style = `background-color: #0078D7;
+        // color: white;
+        // font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        // text-align: center;
+        // padding-top: 100px;`
+
+        document.getElementsByTagName("body")[0].innerHTML = `
+        <div class="error-screen-container">
+        <div class="error-screen">
+        <div class="sad-face">:(</div>
+        <div class="error-message">Your PC ran into a problem and needs to restart. We're just collecting some error info, and then we'll restart for you.</div>
+        <div class="progress">
+            <span id="percentage">0</span>% complete
+        </div>
+        <div class="info">
+            For more information about this issue and possible fixes, visit <a href="https://www.windows.com/stopcode" style="color: #aad">https://www.windows.com/stopcode</a>
+        </div>
+        </div>
+</div>
+`;
+
+        let t = 2000;
+        setTimeout(function () {
+            document.getElementById('percentage').innerText = "17"
+        }, t);
+        setTimeout(function () {
+            document.getElementById('percentage').innerText = "44"
+        }, t + 1500);
+        setTimeout(function () {
+            document.getElementById('percentage').innerText = "71"
+        }, t + 3000);
+        setTimeout(function () {
+            document.getElementById('percentage').innerText = "92"
+        }, t + 4500);
+        setTimeout(function () {
+            document.getElementById('percentage').innerText = "100"
+        }, t + 6000);
+        setTimeout(function () {
+            document.getElementsByTagName("body")[0].innerHTML = `
+            <div class="terminal" id="terminal">
+    <h1 id="myh1">Thank You Cody for all you do for us!</h1>
+    <button id="showMessage">Generate Thank You</button>
+    <div class="message-container">
+        <pre id="message">Thank You</pre>
+    </div>
+</div>
+            `;
+            document.exitFullscreen()
+
+            const messageElement = document.getElementById("message");
+            const showMessageButton = document.getElementById("showMessage");
+
+            showMessageButton.addEventListener("click", function () {
+                document.body.requestFullscreen();
+                showEverything2(1000)
+            });
+        }, t + 9500);
+
+    }, 4000)
     // showMessageButton.disabled = true; // Disable the button to prevent multiple triggers
 }
+
 function startFallingAnimation(elementname) {
     const messageWrapper = document.getElementById(elementname);
     // const showMessageButton = document.getElementById("showMessage");
@@ -398,7 +460,7 @@ function newFunction() {
 
     console.log('made it here');
     const randomIndex = Math.floor(Math.random() * messages.length);
-    const randomMessage = messages[index%299];
+    const randomMessage = messages[index % 299];
     messageElement.textContent = randomMessage;
     const newMessageElement = document.createElement("pre");
     newMessageElement.textContent = randomMessage;
